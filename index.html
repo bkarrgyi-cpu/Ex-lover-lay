@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Agreement</title>
+    <style>
+        body { background-color: #fce4ec; font-family: sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .container { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 85%; max-width: 320px; text-align: center; }
+        .step-card { display: none; }
+        .step-card.active { display: block; }
+        .step-indicator { color: #e91e63; font-size: 14px; font-weight: bold; }
+        .sticker { width: 120px; height: 120px; object-fit: cover; border-radius: 10px; margin: 15px 0; }
+        .btn-yes, .btn-download { background-color: #3f51b5; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-size: 16px; width: 100%; margin-top: 10px; }
+        .agreement-list { text-align: left; font-size: 14px; padding-left: 0; list-style: none; }
+        .agreement-list li { margin: 10px 0; border-bottom: 1px dashed #ddd; padding-bottom: 5px; }
+        .ans { float: right; color: #e91e63; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Step 1 -->
+        <div class="step-card active" id="step1">
+            <p class="step-indicator">Step 1 of 5</p>
+            <h3>ကိုယ့်ကိုသိပြီးသားဖြစ်ပါရဲ့လား?</h3>
+            <img src="https://media.giphy.com/media/26xBI73gWquCBBCDe/giphy.gif" alt="sticker" class="sticker">
+            <button class="btn-yes" onclick="nextStep(2)">Yes</button>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card" id="step2">
+            <p class="step-indicator">Step 2 of 5</p>
+            <h3>အများကြီး သတိရနေတာ</h3>
+            <img src="https://media.giphy.com/media/nDSlfqf0pzjg7mEO0k/giphy.gif" alt="sticker" class="sticker">
+            <button class="btn-yes" onclick="nextStep(3)">ဆက်လုပ်မယ်</button>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card" id="step3">
+            <p class="step-indicator">Step 3 of 5</p>
+            <h3>ကိုယ့်ကိုပြုံးကျပ်မယ်လေးနော်</h3>
+            <img src="https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif" alt="sticker" class="sticker">
+            <button class="btn-yes" onclick="nextStep(4)">ဟုတ်ကဲ့</button>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step-card" id="step4">
+            <p class="step-indicator">Step 4 of 5</p>
+            <h3>ပြုံးတော့ရော ကိုယ့်ကိုပိုချစ်လာမလား?</h3>
+            <img src="https://media.giphy.com/media/Cmr1OMJ2L0Q3m/giphy.gif" alt="sticker" class="sticker">
+            <button class="btn-yes" onclick="nextStep(5)">ပိုချစ်ပါတယ်</button>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="step-card" id="step5">
+            <p class="step-indicator">Step 5 of 5</p>
+            <h3>ဒါဆို အရင်လို ပြန်ချစ်မယ်နော်</h3>
+            <img src="https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif" alt="sticker" class="sticker">
+            <button class="btn-yes" onclick="finishAgreement()">I said Yes</button>
+        </div>
+
+        <!-- Result / Agreement Paper -->
+        <div class="step-card" id="resultPage">
+            <h2>❤️ Our Love Agreement</h2>
+            <ul class="agreement-list">
+                <li>1. ကိုယ့်ကိုသိပြီးသားဖြစ်ပါရဲ့လား - <span class="ans">Yes</span></li>
+                <li>2. အများကြီး သတိရနေတာ - <span class="ans">လက်ခံသည်</span></li>
+                <li>3. ကိုယ့်ကိုပြုံးကျပ်မယ်လေးနော် - <span class="ans">ဟုတ်ကဲ့</span></li>
+                <li>4. ပြုံးတော့ရော ကိုယ့်ကိုပိုချစ်လာမလား - <span class="ans">ပိုချစ်ပါတယ်</span></li>
+                <li>5. ဒါဆို အရင်လို ပြန်ချစ်မယ်နော် - <span class="ans">I said Yes</span></li>
+            </ul>
+            <p style="color: #4caf50; font-weight: bold; margin-top: 15px;">သဘောတူညီချက် ပြီးမြောက်ပါပြီ! ❤️</p>
+        </div>
+    </div>
+
+    <script>
+        function nextStep(stepNumber) {
+            const cards = document.querySelectorAll('.step-card');
+            cards.forEach(card => card.classList.remove('active'));
+            document.getElementById('step' + stepNumber).classList.add('active');
+        }
+
+        function finishAgreement() {
+            const cards = document.querySelectorAll('.step-card');
+            cards.forEach(card => card.classList.remove('active'));
+            document.getElementById('resultPage').classList.add('active');
+        }
+    </script>
+</body>
+</html>
